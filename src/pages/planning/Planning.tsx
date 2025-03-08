@@ -19,9 +19,7 @@ export default function PlanningPage() {
   const [columnData] = useState<any>(planningColConfig);
 
   const dispatch = useAppDispatch();
-  const { data, loading, error } = useAppSelector(
-    (state: RootState) => state.planningData
-  );
+  const { data } = useAppSelector((state: RootState) => state.planningData);
 
   useEffect(() => {
     dispatch(fetchPlanningData());

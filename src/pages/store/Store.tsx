@@ -32,9 +32,7 @@ export const StorePage = () => {
     { field: "state" },
   ]);
   const dispatch = useAppDispatch();
-  const { data, loading, error } = useAppSelector(
-    (state: RootState) => state.storeData
-  );
+  const { data } = useAppSelector((state: RootState) => state.storeData);
 
   useEffect(() => {
     dispatch(fetchStoreData());

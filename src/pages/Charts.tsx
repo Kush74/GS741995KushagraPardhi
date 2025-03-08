@@ -8,7 +8,6 @@ import {
   AgCartesianAxisOptions,
   AgCartesianChartOptions,
   AgCartesianSeriesOptions,
-  AgCartesianSeriesTooltipRendererParams,
   AgLineSeriesOptions,
 } from "ag-charts-community";
 import DropDown from "../components/form-elements/DropDown";
@@ -72,9 +71,7 @@ export default function ChartsPage() {
   });
 
   const dispatch = useAppDispatch();
-  const { data, loading, error } = useAppSelector(
-    (state: RootState) => state.graphPageData
-  );
+  const { data } = useAppSelector((state: RootState) => state.graphPageData);
 
   const handleSelect = (value: string) => {
     console.log("Selected value:", value);
@@ -94,7 +91,7 @@ export default function ChartsPage() {
       });
     });
     changeSelectOptions(selOptions);
-    setChartOptions({ ...chartOptions, data: data.dataSeries });
+    setChartOptions(() => ({ ...chartOptions, data: data.dataSeries }));
   }, [data]);
 
   return (
